@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   btnText: {
-    fontWeight: "600",
+    fontWeight: "900",
     color: "white",
   },
 });

@@ -10,6 +10,7 @@ import {
   ScrollView,
   Platform,
   useColorScheme,
+  Pressable,
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -102,10 +103,9 @@ export default function LoginPage({ navigation }) {
         {errors.password && (
           <Text style={styles.error}>{errors.password.message}</Text>
         )}
-
-        <View style={styles.button}>
-          <Button title="Sign Up" onPress={handleSubmit(onSubmit)} />
-        </View>
+        <Pressable style={styles.button} onPress={handleSubmit(onSubmit)}>
+          <Text style={styles.btnText}>LOGIN</Text>
+        </Pressable>
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -138,5 +138,13 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 12,
+    paddingVertical: 10,
+    backgroundColor: "#FFDE59",
+    borderRadius: 6,
+  },
+  btnText: {
+    color: "#fff",
+    fontWeight: "900",
+    textAlign: "center",
   },
 });

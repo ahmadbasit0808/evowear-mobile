@@ -53,7 +53,17 @@ export default function UserPage() {
   return (
     <View style={bgThemeObj(styles.container, colorScheme)}>
       <View style={styles.imageContainer}>
-        <Image source={Guest} style={styles.image} />
+        <Image
+          source={
+            user?.image
+              ? typeof user.image === "string"
+                ? { uri: user.image }
+                : user.image
+              : Guest
+          }
+          style={styles.image}
+        />
+
         <Text style={textThemeObj(styles.imageText, colorScheme)}>
           {user?.name}
         </Text>
