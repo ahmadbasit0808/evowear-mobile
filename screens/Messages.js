@@ -99,6 +99,7 @@ export default function Message() {
     >
       <FlatList
         data={messages}
+        keyboardDismissMode="on-drag"
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         contentContainerStyle={styles.messageList}
@@ -122,7 +123,6 @@ export default function Message() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
   },
   messageList: {
     padding: 10,

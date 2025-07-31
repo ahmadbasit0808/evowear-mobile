@@ -28,7 +28,7 @@ export default function RootNavigator() {
             case "Home":
               iconName = focused ? "home" : "home-outline";
               break;
-            case "Messages":
+            case "Message":
               iconName = focused ? "chatbox" : "chatbox-outline";
               break;
             case "Account":
@@ -54,7 +54,7 @@ export default function RootNavigator() {
           headerShown: false,
         }}
       />
-      <Tab.Screen name="Messages" component={Messages} />
+      <Tab.Screen name="Message" component={Messages} />
       <Tab.Screen name="Deals" component={Deals} />
       <Tab.Screen name="Cart" component={Cart} />
       <Tab.Screen

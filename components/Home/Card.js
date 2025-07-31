@@ -5,20 +5,29 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 const { width } = Dimensions.get("window");
 
-const MyCard = ({ image, text1, text2, price }) => (
+const MyCard = ({ image, name, description, price, addToCart }) => (
   <View style={styles.container}>
     <Card mode="elevated" style={styles.card}>
       <Card.Cover source={image} />
       <Card.Content style={styles.content}>
-        <Text variant="titleSmall">{text1}</Text>
-        <Text variant="bodySmall">{text2}</Text>
+        <Text numberOfLines={1} variant="titleSmall">
+          {name}
+        </Text>
+        <Text variant="bodySmall">{description}</Text>
       </Card.Content>
-      <Card.Actions style={styles.actions}>
+      <Card.Content style={styles.actions}>
         <Text variant="bodySmall" style={styles.price}>
-          {price}
+          {`Rs.${price}`}
         </Text>
         <Pressable
           onPress={() => {
+            addToCart({
+              id: name, // or use a real `id` if passed separately
+              image,
+              name,
+              description,
+              price,
+            });
             Alert.alert("Added to cart");
           }}
         >
@@ -30,7 +39,7 @@ const MyCard = ({ image, text1, text2, price }) => (
             />
           )}
         </Pressable>
-      </Card.Actions>
+      </Card.Content>
     </Card>
   </View>
 );
@@ -44,12 +53,11 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingVertical: 10,
-    minHeight: 80,
   },
   actions: {
-    justifyContent: "center",
+    flexDirection: "row",
     alignItems: "center",
-    gap: 20,
+    justifyContent: "space-around",
   },
   price: {
     fontWeight: "bold",
