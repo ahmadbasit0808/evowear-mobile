@@ -44,25 +44,13 @@ export default function SignUpPage({ navigation }) {
     resolver: yupResolver(schema),
   });
 
-  // ✅ Expo-compatible image picker
-  const pickImage = async () => {
-    const permissionResult =
-      await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (!permissionResult.granted) {
-      Alert.alert(
-        "Permission required",
-        "We need access to your photo gallery."
-      );
-      return;
-    }
-
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+  // ✅ Expo image picker
+  const pickImageAsync = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
       aspect: [1, 1],
       quality: 0.5,
     });
-
     if (!result.canceled && result.assets && result.assets.length > 0) {
       setImageUri(result.assets[0].uri);
     }
@@ -72,11 +60,15 @@ export default function SignUpPage({ navigation }) {
     const { name, email, password } = data;
 
     setUser((prevUser) => ({
-      ...prevUser,
       name,
       email,
       password,
-      image: imageUri || prevUser.image, // update image here!
+      image: imageUri || prevUser.image,
+      pay: 0,
+      deliver: 0,
+      ship: 0,
+      review: 0,
+      cancel: 0,
     }));
 
     Alert.alert("Account Created Successfully", "Go to My Account.", [
@@ -107,7 +99,7 @@ export default function SignUpPage({ navigation }) {
             source={imageUri ? { uri: imageUri } : defaultImage}
             style={styles.image}
           />
-          <Pressable onPress={pickImage}>
+          <Pressable onPress={pickImageAsync}>
             <Text style={styles.imageText}>Choose profile picture</Text>
           </Pressable>
         </View>
