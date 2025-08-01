@@ -2,7 +2,6 @@ import React from "react";
 import { View, StyleSheet, Pressable, Dimensions, Alert } from "react-native";
 import { Card, Text } from "react-native-paper";
 import Ionicons from "@expo/vector-icons/Ionicons";
-
 const { width } = Dimensions.get("window");
 
 const MyCard = ({ image, name, description, price, addToCart }) => (
@@ -28,7 +27,10 @@ const MyCard = ({ image, name, description, price, addToCart }) => (
               description,
               price,
             });
-            Alert.alert("Added to cart");
+            Alert.alert(
+              `Item added successfully`,
+              `${name} has been added to your cart. `
+            );
           }}
         >
           {({ pressed }) => (

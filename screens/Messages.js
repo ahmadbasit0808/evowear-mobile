@@ -95,11 +95,11 @@ export default function Message() {
     <KeyboardAvoidingView
       style={bgThemeObj(styles.container, colorScheme)}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      keyboardVerticalOffset={Platform.OS === "ios" ? 60 : 120}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 60 : 100}
     >
       <FlatList
         data={messages}
-        keyboardDismissMode="on-drag"
+        keyboardDismissMode="none"
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         contentContainerStyle={styles.messageList}
