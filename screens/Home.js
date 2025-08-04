@@ -1,4 +1,4 @@
-import { StyleSheet, SafeAreaView, useColorScheme } from "react-native";
+import { SafeAreaView, useColorScheme } from "react-native";
 
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Header from "../components/Home/Header";
@@ -20,5 +20,3 @@ export default function Home() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({});

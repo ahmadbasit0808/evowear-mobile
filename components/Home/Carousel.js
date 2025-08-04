@@ -35,7 +35,7 @@ const HomeCarousel = () => {
 const styles = StyleSheet.create({
   container: {
     height: 200,
-    marginTop: 10,
+    marginVertical: 10,
   },
   wrapper: {},
   slide: {

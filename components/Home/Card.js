@@ -7,7 +7,7 @@ const { width } = Dimensions.get("window");
 const MyCard = ({ image, name, description, price, addToCart }) => (
   <View style={styles.container}>
     <Card mode="elevated" style={styles.card}>
-      <Card.Cover source={image} />
+      <Card.Cover source={image} style={styles.image} />
       <Card.Content style={styles.content}>
         <Text numberOfLines={1} variant="titleSmall">
           {name}
@@ -21,7 +21,7 @@ const MyCard = ({ image, name, description, price, addToCart }) => (
         <Pressable
           onPress={() => {
             addToCart({
-              id: name, // or use a real `id` if passed separately
+              id: name,
               image,
               name,
               description,
@@ -47,11 +47,13 @@ const MyCard = ({ image, name, description, price, addToCart }) => (
 );
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 10,
-  },
+  container: {},
   card: {
     width: width / 2 - 20,
+  },
+  image: {
+    height: width / 1.6,
+    resizeMode: "contain",
   },
   content: {
     paddingVertical: 10,
