@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { View, Image, Dimensions, StyleSheet } from "react-native";
-import Swiper from "react-native-swiper";
+import Carousel from "react-native-reanimated-carousel";
 
 const { width } = Dimensions.get("window");
 
@@ -11,23 +11,25 @@ const images = [
 ];
 
 const HomeCarousel = () => {
+  const carouselRef = useRef(null);
+
   return (
     <View style={styles.container}>
-      <Swiper
-        autoplay
-        showsPagination={true}
-        dotColor="#ccc"
-        removeClippedSubviews={false}
-        activeDotColor="#000"
-        autoplayTimeout={5}
-        style={styles.wrapper}
-      >
-        {images.map((source, index) => (
-          <View key={index} style={styles.slide}>
-            <Image source={source} style={styles.image} resizeMode="cover" />
+      <Carousel
+        ref={carouselRef}
+        loop
+        autoPlay
+        autoPlayInterval={5000}
+        width={width}
+        height={200}
+        data={images}
+        scrollAnimationDuration={1000}
+        renderItem={({ item }) => (
+          <View style={styles.slide}>
+            <Image source={item} style={styles.image} resizeMode="cover" />
           </View>
-        ))}
-      </Swiper>
+        )}
+      />
     </View>
   );
 };
@@ -37,7 +39,6 @@ const styles = StyleSheet.create({
     height: 200,
     marginVertical: 10,
   },
-  wrapper: {},
   slide: {
     flex: 1,
     justifyContent: "center",

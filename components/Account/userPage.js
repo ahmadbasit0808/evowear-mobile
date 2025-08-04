@@ -9,7 +9,7 @@ import {
 import Guest from "../../images/guest.png";
 import { Ionicons } from "@expo/vector-icons";
 import { useUser } from "../../utils/UserContext";
-import { Badge } from "react-native-elements";
+import { Badge } from "react-native-paper";
 import { bgThemeObj, textThemeObj } from "../../utils/themes";
 
 const List = [
@@ -31,7 +31,7 @@ const Icon = ({ item, count, colorScheme }) => {
       <View>
         <Ionicons size={28} color="#269dd3" name={item.name} />
         {typeof count === "number" && count > 0 && (
-          <Badge value={count} status="error" containerStyle={styles.badge} />
+          <Badge style={styles.badge}>{count}</Badge>
         )}
       </View>
       <Text style={textThemeObj(styles.iconText, colorScheme)}>
@@ -111,7 +111,14 @@ const styles = StyleSheet.create({
     fontSize: 10,
     marginTop: 4,
   },
-  badge: { position: "absolute", top: -4, right: -10 },
+  badge: {
+    position: "absolute",
+    top: -4,
+    right: -10,
+    backgroundColor: "#d32f2f",
+    color: "#fff",
+  },
+
   title: {
     paddingLeft: 15,
     fontWeight: "600",
