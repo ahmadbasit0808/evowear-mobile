@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
-    "expo": {
+  "expo": {
     "doctor": {
       "reactNativeDirectoryCheck": {
         "exclude": [
@@ -17,33 +17,37 @@
     }
   },
   "dependencies": {
-    "@expo/vector-icons": "^14.1.0",
+    "@expo/vector-icons": "^15.0.2",
     "@hookform/resolvers": "^5.2.0",
     "@react-navigation/bottom-tabs": "^7.4.2",
     "@react-navigation/drawer": "^7.5.3",
     "@react-navigation/native": "^7.1.14",
     "@react-navigation/native-stack": "^7.3.21",
     "@react-navigation/stack": "^7.4.2",
-    "expo": "~53.0.20",
-    "expo-constants": "~17.1.7",
-    "expo-image-picker": "~16.1.4",
-    "expo-status-bar": "~2.2.3",
+    "expo": "~57.0.0",
+    "expo-constants": "~57.0.3",
+    "expo-font": "~57.0.0",
+    "expo-image-picker": "~57.0.2",
+    "expo-status-bar": "~57.0.0",
     "lodash": "^4.17.21",
-    "react": "19.0.0",
+    "react": "19.2.3",
     "react-hook-form": "^7.61.1",
-    "react-native": "^0.79.5",
-    "react-native-gesture-handler": "~2.24.0",
+    "react-native": "0.86.0",
+    "react-native-flash-message": "^0.4.2",
+    "react-native-gesture-handler": "~2.32.0",
     "react-native-paper": "5.14.5",
-    "react-native-reanimated": "~3.17.4",
+    "react-native-reanimated": "4.5.0",
     "react-native-reanimated-carousel": "^4.0.2",
-    "react-native-safe-area-context": "5.4.0",
-    "react-native-screens": "~4.11.1",
-    "typescript": "~5.8.3",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "4.25.2",
+    "react-native-worklets": "0.10.0",
+    "typescript": "~6.0.3",
     "yup": "^1.6.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.0",
-    "@types/react": "~19.0.10"
+    "@babel/core": "^7.29.0",
+    "@types/react": "~19.2.4",
+    "babel-preset-expo": "^57.0.2"
   },
   "private": true
 }

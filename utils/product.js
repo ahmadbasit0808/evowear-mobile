@@ -1,3 +1,5 @@
+export const CATEGORIES = ["All", "T-Shirts", "Sweatshirts", "Dresses", "Bottoms", "Jackets"];
+
 export const Data = [
   {
     id: "product1",
@@ -5,13 +7,15 @@ export const Data = [
     name: "Turtle Neck T-shirt",
     description: "2 Colors | Regular Fit",
     price: 2090,
+    category: "T-Shirts",
   },
   {
     id: "product2",
     image: require("../images/products (2).webp"),
     name: "Textured Striped T-Shirt",
-    description: "2 Colors Regular Fit",
+    description: "2 Colors | Regular Fit",
     price: 4090,
+    category: "T-Shirts",
   },
   {
     id: "product3",
@@ -19,6 +23,7 @@ export const Data = [
     name: "Basic V Neck T-shirt",
     description: "5 Colors | Regular Fit",
     price: 2490,
+    category: "T-Shirts",
   },
   {
     id: "product4",
@@ -26,6 +31,7 @@ export const Data = [
     name: "Basic V Neck T-shirt",
     description: "5 Colors | Regular Fit",
     price: 2090,
+    category: "T-Shirts",
   },
   {
     id: "product5",
@@ -33,6 +39,7 @@ export const Data = [
     name: "Basic Round Neck T-shirt",
     description: "2 Colors | Regular Fit",
     price: 2490,
+    category: "T-Shirts",
   },
   {
     id: "product6",
@@ -40,13 +47,15 @@ export const Data = [
     name: "Turtle Neck T-shirt",
     description: "2 Colors | Regular Fit",
     price: 2890,
+    category: "T-Shirts",
   },
   {
     id: "product7",
     image: require("../images/products (7).webp"),
-    name: "Sleeved Neck shirt",
+    name: "Sleeved Neck Shirt",
     description: "2 Colors | Relaxed Fit",
     price: 3090,
+    category: "T-Shirts",
   },
   {
     id: "product8",
@@ -54,6 +63,7 @@ export const Data = [
     name: "Printed Neck T-shirt",
     description: "2 Colors | Regular Fit",
     price: 3090,
+    category: "T-Shirts",
   },
   {
     id: "product9",
@@ -61,6 +71,7 @@ export const Data = [
     name: "Mock Neck Sleeveless Dress",
     description: "2 Colors | Regular Fit",
     price: 3690,
+    category: "Dresses",
   },
   {
     id: "product10",
@@ -68,6 +79,7 @@ export const Data = [
     name: "Basic Fleece Sweatshirt",
     description: "3 Colors | Relaxed Fit",
     price: 3690,
+    category: "Sweatshirts",
   },
   {
     id: "product11",
@@ -75,20 +87,23 @@ export const Data = [
     name: "Mock Neck Fleece Sweatshirt",
     description: "3 Colors | Regular Fit",
     price: 3990,
+    category: "Sweatshirts",
   },
   {
     id: "product12",
     image: require("../images/products (12).webp"),
-    name: "Jacket with Double Flap Front Pocket ",
+    name: "Jacket with Double Flap Front Pocket",
     description: "1 Color | Regular Fit",
     price: 7490,
+    category: "Jackets",
   },
   {
     id: "product13",
     image: require("../images/products (13).webp"),
-    name: "Basic Wide Leg Pants ",
+    name: "Basic Wide Leg Pants",
     description: "2 Colors | Wide Fit",
     price: 3990,
+    category: "Bottoms",
   },
   {
     id: "product14",
@@ -96,5 +111,6 @@ export const Data = [
     name: "Jeans Wide Pants",
     description: "2 Colors | Regular Fit",
     price: 4090,
+    category: "Bottoms",
   },
 ];

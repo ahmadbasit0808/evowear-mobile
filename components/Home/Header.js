@@ -1,52 +1,60 @@
-import { View, TextInput, Text, Pressable, StyleSheet } from "react-native";
-import { useState } from "react";
-export default function Header() {
-  const [search, onChangeSearch] = useState("");
+import { View, TextInput, Text, StyleSheet, useColorScheme, Pressable } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { COLORS, bgThemeProp, textThemeProp, subTextThemeProp } from "../../utils/themes";
+
+export default function Header({ search, onSearchChange }) {
+  const colorScheme = useColorScheme();
+  const isDark = colorScheme === "dark";
+
   return (
-    <View style={styles.seachBox}>
-      <TextInput
-        value={search}
-        style={styles.input}
-        onChangeText={onChangeSearch}
-        placeholder="Search here"
-        placeholderTextColor="#888"
-      />
-      <Pressable style={styles.btn}>
-        <Text style={styles.btnText}>Search</Text>
-      </Pressable>
+    <View style={[styles.wrapper, { backgroundColor: bgThemeProp(colorScheme) }]}>
+      <Text style={[styles.brand, { color: textThemeProp(colorScheme) }]}>
+        evo<Text style={styles.brandAccent}>wear</Text>
+      </Text>
+      <View style={[styles.searchBox, { backgroundColor: isDark ? COLORS.darkInput : "#f5f5f5", borderColor: isDark ? COLORS.darkBorder : COLORS.lightBorder }]}>
+        <Ionicons name="search-outline" size={18} color={subTextThemeProp(colorScheme)} style={styles.searchIcon} />
+        <TextInput
+          value={search}
+          style={[styles.input, { color: textThemeProp(colorScheme) }]}
+          onChangeText={onSearchChange}
+          placeholder="Search products..."
+          placeholderTextColor={subTextThemeProp(colorScheme)}
+          returnKeyType="search"
+        />
+        {search.length > 0 && (
+          <Pressable onPress={() => onSearchChange("")}>
+            <Ionicons name="close-circle" size={18} color={subTextThemeProp(colorScheme)} />
+          </Pressable>
+        )}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  seachBox: {
-    padding: 3,
-    marginHorizontal: 20,
-    marginVertical: 10,
-    borderColor: "#FFDE59",
-    borderRadius: 12,
-    borderWidth: 2,
-    backgroundColor: "#fff",
+  wrapper: {
+    paddingHorizontal: 16,
+    paddingTop: 8,
+    paddingBottom: 4,
+  },
+  brand: {
+    fontSize: 26,
+    fontWeight: "900",
+    letterSpacing: 1,
+    marginBottom: 10,
+  },
+  brandAccent: {
+    color: COLORS.primary,
+  },
+  searchBox: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    borderRadius: 12,
+    borderWidth: 1,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    marginBottom: 6,
   },
-  input: {
-    flex: 1,
-    paddingHorizontal: 10,
-    fontSize: 16,
-  },
-  btn: {
-    backgroundColor: "#FFDE59",
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    marginLeft: 8,
-    borderRadius: 8,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  btnText: {
-    fontWeight: "900",
-    color: "white",
-  },
+  searchIcon: { marginRight: 8 },
+  input: { flex: 1, fontSize: 15 },
 });

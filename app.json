@@ -6,11 +6,6 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -34,6 +29,9 @@
       "eas": {
         "projectId": "ed7e76e1-d9ff-4641-ace7-6be64368a359"
       }
-    }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
