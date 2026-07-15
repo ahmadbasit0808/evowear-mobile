@@ -42,7 +42,7 @@ npm install
 ### Run (development)
 
 ```bash
-npx expo start start
+npx expo start
 ```
 
 Then choose one of:
